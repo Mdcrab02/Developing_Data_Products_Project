@@ -16,22 +16,6 @@ source("prepare.R")
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
   
-  # display 10 rows initially
-  output$raw <- DT::renderDataTable(
-    DT::datatable(student_por, options = list(pageLength = 25))
-  )
-   
-  output$distPlot <- renderPlot({
-    
-    # generate bins based on input$bins from ui.R
-    x    <- faithful[, 2] 
-    bins <- seq(min(x), max(x), length.out = input$bins + 1)
-    
-    # draw the histogram with the specified number of bins
-    hist(x, breaks = bins, col = 'darkgray', border = 'white')
-    
-  })
-  
   output$dalc_plot <- renderPlot({
     #Dalc <- as.numeric(unlist(select(filter(student_por,student_por$sex==input$sex),Dalc)))
     #hist(Dalc)
