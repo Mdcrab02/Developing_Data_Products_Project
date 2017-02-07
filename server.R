@@ -10,6 +10,8 @@
 library(shiny)
 library(dplyr)
 library(ggplot2)
+library(rmarkdown)
+library(markdown)
 
 source("prepare.R")
 

@@ -4,6 +4,8 @@
 
 This is my first Shiny app, and I wanted to use some data that isn't commonly used in R and might be a little interesting.  This is the final project for the Developing Data Products class on Coursera.
 
+The live demo on shinyapps.io can be found [here](https://mcrabtree.shinyapps.io/Developing_Data_Products_Project/)
+
 # Navigation
 
 There are a few navigation options available within the app.  Click on any of the links in the navigation to go to the selected page.
