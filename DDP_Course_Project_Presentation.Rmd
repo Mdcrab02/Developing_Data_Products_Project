@@ -1,0 +1,58 @@
+---
+title: "DDP_Course_Project_Presentation"
+author: "Mike Crabtree"
+date: "February 6, 2017"
+output: slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Introduction
+
+The Shiny app I developed is my first Shiny app, and involves data from High School students and aspects of their lives including how often they consume alcohol.
+
+The purpose of this app is to perform some basic data exploration on the dataset using an interactive Shiny app.
+
+The live demo on shinyapps.io can be found [here](https://mcrabtree.shinyapps.io/Developing_Data_Products_Project/)
+
+## Data
+
+The data can be found on Kaggle [here](https://www.kaggle.com/uciml/student-alcohol-consumption)
+
+The data were obtained in a survey of students math and portuguese language courses in secondary school. It contains a lot of interesting social, gender and study information about students. You can use it for some EDA or try to predict students final grade.
+
+The list of features available in the dataset is listed on the above linked page on Kaggle.
+
+## Structure of the Data
+
+Below is the details about the structure of the data.
+
+```{r data, message=FALSE, warning=FALSE}
+library(readr)
+library(ggplot2)
+student_por <- read_csv("./data/student-por.csv")
+str(data.frame(student_por))
+```
+
+## The App
+
+My Shiny app allows the user to:
+
+1. Render a histogram of daily alcohol consumption categories based on the selected sex.
+2. Renger a histogram of daily alcohol consumption categories based on a selected range of age.
+3. View the raw data in the form of a data table.
+
+Example Output:
+
+```{r ex, message=FALSE, warning=FALSE}
+ggplot(student_por, aes(factor(age))) +
+    geom_bar() + 
+    ggtitle(paste("Daily Alcohol Conumption Levels Where Age is Between: 15 - 22")) +
+    xlab("Daily Consumption Age Group") +
+    ylab("Count") +
+    coord_cartesian(ylim = c(0, 200))
+```
+
+The source code for the app can be found [here](https://github.com/Mdcrab02/Developing_Data_Products_Project)
